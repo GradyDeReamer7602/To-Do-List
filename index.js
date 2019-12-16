@@ -3,7 +3,7 @@ $(document).ready(function() {
   $("#add").click(function() {
     var task = $("#task").val();
     var btn = $("<button/>", {
-      text: "Done",
+      text: "X",
       value: task,
       click: function() {
         alert("clicked");
