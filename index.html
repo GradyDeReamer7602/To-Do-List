@@ -1,21 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <body>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="index.css" />
     <title>Todo List</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   </head>
-  <body>
-    <div id="container">
-      <input type="text" id="task" placeholder="New Task" />
-      <button id="add">New</button>
-      <div class="todo">
-        <ul id="tasks">
-          Tasks To Complete:
-        </ul>
-      </div>
-      <button id="clear">Clear</button>
-    </div>
-  </body>
-  <script src="./index.js"></script>
+    <form>
+      <input type="text" id="task" placeholder="New Task" >
+      
+      <input type="text" id="deadline" placeholder="New Deadline" >
+
+      <input type="button" class="add-row" value="Add To List">
+
+      </form>
+      <table>
+      <div class="todo" >
+        <h1>Tasks To Complete:</h1>
+        <thead>
+            <tr>
+              <th>To Complete
+              </th>
+              <th>Task
+              </th>
+              <th>Deadline</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr>
+
+        </tr>
+        </tbody>
+      </table>
+        <button type="button" class="delete-row">Delete Selected</button>
+  
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".add-row").click(function(){
+    var task = $("#task").val();
+    var deadline = $("#deadline").val();
+    var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + task + "</td><td>" + deadline + "</td></tr>";
+    $("table tbody").append(markup);
+  });
+$(".delete-row").click(function(){
+  $("table tbody").find('input[name="record"]').each(function(){
+    if($(this).is(":checked")){
+      $(this).parents("tr").remove();
+    }
+  })
+});
+});</script>
+</body>
 </html>
+

@@ -1,34 +1,15 @@
-$(document).ready(function() {
-    
-  var tasks = [];
-  var deleteTodoItem = function(item) {
-    // check the list for the item
-    // remove it from the list
-  };
-
-  $("#add").click(function() {
-    var task = $("#task").val();
-    var btn = $("<button/>", {
-      text: "X",
-      value: task,
-      click: function() {
-        alert("clicked");
-      }
-    });
-
-    console.log("Button was clicked!");
-
-    $("#tasks").append("<li>");
-    $("#tasks").append(task);
-    $("#tasks").append(btn);
-    $("#tasks").append("</li>");
-    task.push(task);
+$(document).ready(function(){
+  $(".add-row").click(function(){
+    var task = $("#tasks").val();
+    var deadline = $("#deadline").val();
+    "<tr><td><input type='checkbox' name='record'></td><td>" + task + "</td><td>" + deadline + "</td></tr>";
+    $("table tbody").append(markup);
   });
-
-  // CRUD - Create Read Update Delete
-
-  $("#clear").click(function() {
-    $("#tasks").empty();
-    tasks = [];
-  });
+$(".delete-row").click(function(){
+  $("table tbody").find('input[task="record]').each(function(){
+    if($(this).is(":checked")){
+      $(this).parents("tr").remove();
+    }
+  })
+});
 });
